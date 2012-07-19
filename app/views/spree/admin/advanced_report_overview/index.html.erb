@@ -50,12 +50,13 @@
     <div class="report_details">
         <h1><%= t("adv_report.dashboard")%></h1>
     </div>
-
+    
     <ul id="show_data">
         <% @report.increments.each do |inc| %>
-            <li <%= inc == :daily ? 'class=selected' : '' %> id="<%= inc.to_s %>">
-                <label><%= t("adv_report."+inc.to_s) %></label><br />
-                <a href="<%= @report.download_url('/admin/reports/revenue', 'csv', inc.to_s) %>">CSV</a>
+            <li <%= inc == :daily ? 'class=selected' : '' %> id="<%= inc %>">
+                <label><%= t("adv_report.#{inc}") %></label><br />
+                <a href="<%= @report.download_url('/admin/reports/revenue', 'csv', inc) %>">CSV</a>
+                <a href="<%= @report.download_url('/admin/reports/revenue', 'pdf', inc) %>">PDF</a>
             </li>
         <% end -%>
     </ul>

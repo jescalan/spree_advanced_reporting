@@ -1,4 +1,6 @@
 en:
+  sales_total_description: "Sales Total"
+  sales_total: "Sales Total"
   adv_report:
     revenue: "Revenue"
     units: "Units"
