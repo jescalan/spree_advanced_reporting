@@ -8,9 +8,10 @@
 <% content_for :sidebar do %>
     <div class="report_details">
         <h1><%=t "adv_report." + @report.name.downcase.gsub(/ /,"_") %></h1>
-        <div class="links">
-            <a href="<%= @report.download_url(request.fullpath, 'csv', "all") %>">CSV</a>
-        </div>
+        <p class="links">
+            <%= link_to "CSV (all)", @report.download_url(request.fullpath, 'csv', "all") %><br/>
+            <%= link_to "PDF (all)", @report.download_url(request.fullpath, 'pdf', "all") %>
+        </p>
         <%= @report.description %><br />
         <%== @report.product_text %>
         <%== @report.taxon_text %>
@@ -22,7 +23,8 @@
         <% @report.increments.each do |inc| %>
             <li <%= 'class=selected' if inc == :daily %> id="<%= inc.to_s %>">
                 <label><%= inc.to_s.capitalize %></label><br />
-                <a href="<%= @report.download_url(request.fullpath, 'csv', inc.to_s) %>">CSV</a>
+                <%= link_to "CSV", @report.download_url(request.fullpath, 'csv', inc) %>
+                <%= link_to "PDF", @report.download_url(request.fullpath, 'pdf', inc) %>
             </li>
         <% end -%>
     </ul>

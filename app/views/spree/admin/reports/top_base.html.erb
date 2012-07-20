@@ -8,5 +8,10 @@
         <%= @report.product_text %>
     </div>
 
+    <p class="links">
+        <%= link_to "CSV (all)", @report.download_url(request.fullpath, 'csv') %>
+        <%= link_to "PDF (all)", @report.download_url(request.fullpath, 'pdf') %>
+    </p>
+
     <%= render :partial => 'spree/admin/reports/advanced_report_criteria', :locals => {} %>
 <% end %>
