@@ -1,4 +1,5 @@
 require "ruport"
+require "ruport/util"
 
 module Spree
   module AdvancedReporting
@@ -10,6 +11,10 @@ module Spree
       def self.activate
         Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator.rb")).each do |c|
           Rails.env.production? ? require(c) : load(c)
+        end
+
+        Dir.glob(File.join(File.dirname(__FILE__), "../config/locales/*.yml")).each do |c|
+          I18n.load_path << File.expand_path(c)      
         end
 
         # Ruport::Controller::Table.formats.merge({ :flot => MyFlotFormatter })
