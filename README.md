@@ -8,8 +8,6 @@ Forked from what appeared to the be the most up to date for, and made the follow
 
 1. Removed the route that overrides the main admin overview page
 2. Fixed a warning about ```ADVANCED_REPORTS``` being redefined
-3. Fixed the en.yml translation lookups
-4. Improved ruports PDF generation (uses wicked_pdf instead of the ancient PDF::Writer)
 
 ## Includes:
 * Base reports of Revenue, Units, Profit into Daily, Weekly, Monthly, and Yearly increments

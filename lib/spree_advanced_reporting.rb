@@ -1,5 +1,4 @@
 require "ruport"
-require 'wicked_pdf'
 
 module Spree
   module AdvancedReporting
