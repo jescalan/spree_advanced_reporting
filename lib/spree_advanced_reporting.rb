@@ -1,5 +1,4 @@
 require "ruport"
-require "ruport/util"
 
 module Spree
   module AdvancedReporting
