@@ -10,7 +10,6 @@
         <h1><%=t "adv_report." + @report.name.downcase.gsub(/ /,"_") %></h1>
         <p class="links">
             <%= link_to "CSV (all)", @report.download_url(request.fullpath, 'csv', "all") %><br/>
-            <%= link_to "PDF (all)", @report.download_url(request.fullpath, 'pdf', "all") %>
         </p>
         <%= @report.description %><br />
         <%== @report.product_text %>
