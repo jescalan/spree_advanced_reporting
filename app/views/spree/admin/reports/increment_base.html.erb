@@ -24,7 +24,6 @@
             <li <%= 'class=selected' if inc == :daily %> id="<%= inc.to_s %>">
                 <label><%= inc.to_s.capitalize %></label><br />
                 <%= link_to "CSV", @report.download_url(request.fullpath, 'csv', inc) %>
-                <%= link_to "PDF", @report.download_url(request.fullpath, 'pdf', inc) %>
             </li>
         <% end -%>
     </ul>

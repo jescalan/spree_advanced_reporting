@@ -27,7 +27,6 @@ Spree::Admin::ReportsController.class_eval do
     params[:advanced_reporting]["report_type"] ||= :state
     respond_to do |format|
       format.html { render :template => "spree/admin/reports/geo_base" }
-      format.pdf { send_data @report.ruportdata[params[:advanced_reporting]['report_type']].to_pdf }
       format.csv { send_data @report.ruportdata[params[:advanced_reporting]['report_type']].to_csv }
     end
   end
@@ -35,7 +34,6 @@ Spree::Admin::ReportsController.class_eval do
   def base_report_top_render(filename)
     respond_to do |format|
       format.html { render :template => "spree/admin/reports/top_base" }
-      format.pdf { send_data @report.ruportdata.to_pdf }
       format.csv { send_data view_context.strip_tags(@report.ruportdata.to_csv) }
     end
   end
@@ -46,13 +44,6 @@ Spree::Admin::ReportsController.class_eval do
     params[:advanced_reporting]["report_type"] ||= :daily
     respond_to do |format|
       format.html { render :template => "spree/admin/reports/increment_base" }
-      format.pdf do
-        if params[:advanced_reporting]["report_type"] == :all
-          send_data @report.all_data.to_pdf
-        else
-          send_data @report.ruportdata[params[:advanced_reporting]["report_type"]].to_pdf
-        end
-      end
       format.csv do
         if params[:advanced_reporting]["report_type"] == :all
           send_data @report.all_data.to_csv

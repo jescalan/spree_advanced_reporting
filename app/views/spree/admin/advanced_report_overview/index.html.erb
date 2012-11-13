@@ -56,7 +56,6 @@
             <li <%= inc == :daily ? 'class=selected' : '' %> id="<%= inc %>">
                 <label><%= t("adv_report.#{inc}") %></label><br />
                 <a href="<%= @report.download_url('/admin/reports/revenue', 'csv', inc) %>">CSV</a>
-                <a href="<%= @report.download_url('/admin/reports/revenue', 'pdf', inc) %>">PDF</a>
             </li>
         <% end -%>
     </ul>

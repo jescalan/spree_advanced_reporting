@@ -17,12 +17,10 @@
         <li class="selected" id="state">
             <label>States</label><br />
             <%= link_to "CSV", @report.download_url(request.fullpath, 'csv', "state") %>
-            <%= link_to "PDF", @report.download_url(request.fullpath, 'pdf', "state") %>
         </li>
         <li id="country">
             <label>Countries</label><br />
             <%= link_to "CSV", @report.download_url(request.fullpath, 'csv', "country") %>
-            <%= link_to "PDF", @report.download_url(request.fullpath, 'pdf', "country") %>
         </li>
     </ul>
     <%= render :partial => 'spree/admin/reports/advanced_report_criteria', :locals => {} %>
