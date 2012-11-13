@@ -5,7 +5,7 @@ Spree::Admin::ReportsController.class_eval do
   ADVANCED_REPORTS ||= {}
   [ :revenue, :units, :profit, :count, :top_products, :top_customers, :geo_revenue, :geo_units, :geo_profit, :transactions].each do |x|
     # TODO we should pull the name + description for the report models themselves rather than redefining them as I18n definitions
-    ADVANCED_REPORTS[x]= {name: I18n.t("adv_report.#{x}"), :description => I18n.t("adv_report.#{x}")}
+    ADVANCED_REPORTS[x]= { name: x.titlelize }
   end
 
   Spree::Admin::ReportsController::AVAILABLE_REPORTS.merge!(ADVANCED_REPORTS)

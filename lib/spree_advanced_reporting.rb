@@ -12,10 +12,6 @@ module Spree
           Rails.env.production? ? require(c) : load(c)
         end
 
-        Dir.glob(File.join(File.dirname(__FILE__), "../config/locales/*.yml")).each do |c|
-          I18n.load_path << File.expand_path(c)      
-        end
-
         # Ruport::Controller::Table.formats.merge({ :flot => MyFlotFormatter })
         # if Mime::Type.lookup_by_extension(:pdf) != 'application/pdf'
         #   Mime::Type.register('application/pdf', :pdf)
